@@ -1,169 +1,127 @@
- <!doctype html>
-<html lang="en" data-theme="dark">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="manifest" href="./manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0d12">
-  <meta name="description" content="J.A.R.V.I.S personal AI assistant">
-  <title>J.A.R.V.I.S — Personal AI</title>
-  
-  <!-- Existing CSS -->
-  <link rel="stylesheet" href="style.css?v=jarvis-stage-grid-scroll-v8-20260930-final">
-
-  <!-- 👇 ORBS LIBRARY ADDED HERE 👇 -->
-  <script src="https://cdn.jsdelivr.net/npm/orbs@latest/dist/orbs.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/orbs@latest/dist/orbs.css">
-  
-  <!-- 👇 INLINE STYLE FOR THE NEW ORB CONTAINER 👇 -->
-  <style>
-    /* Container for the live Orb */
-    #jarvis-core-container {
-      width: 150px;       /* Size of the orb */
-      height: 150px;
-      margin: 0 auto 20px auto; /* Center it horizontally */
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    /* Ensure canvas inside looks good */
-    #jarvis-core-container canvas {
-      border-radius: 50%;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4); /* Cyan Glow */
-      filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.6));
-    }
-  </style>
+  <title>KALKI — Personal AI Assistant</title>
+  <link rel="stylesheet" href="style.css?v=gemini-key-settings-1">
+  <link rel="stylesheet" href="everyday-tools.css?v=kalki-1">
+  <link rel="stylesheet" href="layout-fix.css?v=two-mode-1">
+  <link rel="stylesheet" href="overrides.css?v=zapia-unified-1">
+  <link rel="stylesheet" href="social-agent.css?v=local-preview-1">
+  <link rel="stylesheet" href="professional-ui.css?v=scroll-fix-1">
+  <link rel="stylesheet" href="motion-enhancements.css?v=0.1.0">
+  <link rel="stylesheet" href="kalki-effects.css?v=3">
+  <style>.advanced-intelligence-panel{margin:18px auto 0;max-width:760px;border:1px solid rgba(176,164,255,.28);border-radius:18px;background:linear-gradient(145deg,rgba(25,29,42,.92),rgba(12,15,24,.9));box-shadow:0 14px 40px #0004;overflow:hidden}.ai-panel-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px}.ai-panel-head strong,.ai-panel-head small{display:block}.ai-panel-head small{color:var(--muted);font-size:10px;margin-top:4px}.ai-collapse{border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--text);font-size:18px}.ai-panel-body{padding:0 16px 16px}.ai-status-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.ai-status-grid span{padding:8px;border:1px solid var(--line);border-radius:10px;background:#ffffff05}.ai-status-grid b,.ai-status-grid em{display:block;font-size:10px}.ai-status-grid b{text-transform:capitalize;color:var(--muted)}.ai-status-grid em{font-style:normal;color:#f0b48c;margin-top:3px}.ai-status-grid em.on{color:var(--green)}.ai-actions{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.ai-actions button,.ai-plan button{border:1px solid var(--line);border-radius:10px;padding:9px;background:#ffffff08;color:var(--text);font-size:11px}.ai-plan label{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.ai-plan textarea{width:100%;box-sizing:border-box;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:9px;background:#090b11;color:var(--text);font:inherit;font-size:12px}.ai-plan button{margin-top:7px}.ai-unavailable{color:var(--muted);font-size:10px;line-height:1.4;margin:12px 0 0}@media(max-width:560px){.ai-status-grid{grid-template-columns:repeat(2,1fr)}.ai-actions button{flex:1 1 45%}}</style>
 </head>
 <body>
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
-      <div class="sidebar-top">
-        <a class="brand" href="./" aria-label="J.A.R.V.I.S home">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><path d="M18 7v22M7 18h22M10.2 10.2l15.6 15.6M25.8 10.2 10.2 25.8"/><circle cx="18" cy="18" r="4"/></svg>
-          </span>
-          <span class="brand-copy"><strong>J.A.R.V.I.S</strong><small>PERSONAL AI</small></span>
-        </a>
-        <button class="icon-button sidebar-collapse" id="sidebar-toggle" type="button" aria-label="Collapse sidebar" title="Collapse sidebar">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+    <header class="app-header">
+      <button class="icon-button menu-button" type="button" aria-label="Open menu">☰</button>
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><img src="1789578396977-559ec457.jpg" alt="KALKI"></div>
+        <div><h1>KALKI</h1><p><span class="status-dot"></span> Voice assistant · talk or type</p></div>
       </div>
+      <button id="clear-btn" class="icon-button" type="button" aria-label="Clear conversation">⌫</button>
+    </header>
 
-      <button class="new-chat" id="new-chat" type="button">
-        <span class="new-chat-icon" aria-hidden="true">+</span><span>New chat</span>
-      </button>
-
-      <div class="history-heading"><span>RECENT</span><span class="history-count" id="history-count"></span></div>
-      <div class="history-list" id="history-list" role="group" aria-label="Conversation history"></div>
-      <div class="sidebar-spacer"></div>
-
-      <div class="sidebar-footer">
-        <button class="sidebar-link" id="settings-open" type="button">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
-          <span>Settings</span>
-        </button>
-        <div class="profile-row"><span class="profile-avatar">V</span><span class="profile-name">Vamshi</span><span class="profile-label">PERSONAL</span></div>
-      </div>
-    </aside>
-
-    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation" hidden></button>
-
-    <main class="main-area">
-      <header class="topbar">
-        <button class="icon-button menu-button" id="menu-btn" type="button" aria-label="Open navigation" title="Open navigation">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-        <div class="topbar-title"><span>J.A.R.V.I.S</span><span class="topbar-divider">/</span><span class="topbar-subtitle">Personal assistant</span></div>
-        <div class="topbar-actions">
-          <span class="ready-badge"><span class="ready-dot"></span> READY</span>
-          
-            <!-- 👇 NEW WAKE WORD BUTTON ADDED HERE 👇 -->
-          <button class="icon-button wake-button" id="wake-btn" type="button" aria-label="Toggle Wake Word" title="Listen for 'Hey Jarvis'">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-              <line x1="12" y1="19" x2="12" y2="22"/>
-            </svg>
-          </button>
-          
-          <!-- Status Text for Wake Mode (Optional but good for UX) -->
-          <span id="wake-status" style="font-size: 0.7rem; color: #888; margin-right: 5px;">WAKE: OFF</span>
-
-          <!-- Existing Clear Button -->
-          <button class="icon-button clear-button" id="clear-btn" type="button" aria-label="Clear current conversation" title="Clear current conversation">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m3 0-.8 13H6.8L6 7m4 3v6m4-6v6"/></svg>
-          </button>
+    <main class="assistant-main">
+      <section class="welcome" aria-label="Welcome">
+        <div class="welcome-orb">✦</div>
+        <p class="eyebrow">YOUR AI COMPANION</p>
+        <h2>How can I help<br><em>today?</em></h2>
+        <p class="welcome-copy">Talk with KALKI hands-free, or type a message. Tap the microphone to start or stop voice conversation.</p>
+        <div class="suggestions" aria-label="Suggestions">
+          <button type="button" onclick="document.getElementById('msg').value='Help me plan my day';document.getElementById('msg').focus()">Plan my day <span>→</span></button>
+          <button type="button" onclick="document.getElementById('msg').value='Search the web for ';document.getElementById('msg').focus()">Search the web <span>→</span></button>
         </div>
-      </header>
-
-      <section class="conversation-stage" id="conversation-stage" aria-label="Conversation" tabindex="0">
-        <div class="welcome" id="welcome">
-          
-          <!-- 👇 OLD STATIC HERO-ORB REPLACED BY LIVE CANVAS CONTAINER 👇 -->
-          <div id="jarvis-core-container" aria-hidden="true">
-             <!-- JavaScript will inject the <canvas> here automatically -->
+        <section id="everyday-tools" class="everyday-tools" aria-label="KALKI Everyday Tools">
+          <div class="tools-heading"><strong>KALKI Everyday Tools</strong><small>Tap to prepare a command — nothing runs automatically.</small></div>
+          <div class="tool-grid">
+            <button data-tool-command="Tell me the time">🕒 Time</button><button data-tool-command="Tell me a joke">😄 Joke</button><button data-tool-command="Give me motivation">✨ Motivation</button><button data-tool-command="Roll a dice">🎲 Dice</button><button data-tool-command="Flip a coin">🪙 Coin</button><button data-tool-command="Generate a strong password">🔐 Password</button><button data-tool-command="Open YouTube">▶ YouTube</button><button data-tool-command="Open Google">🔎 Google</button>
           </div>
-          
-          <div class="welcome-copy">
-            <p class="eyebrow"><span></span> YOUR PERSONAL AI</p>
-            <h1>How can I help today?</h1>
-            <p class="welcome-subtitle">A thoughtful assistant for ideas, answers and everyday tasks.</p>
-          </div>
-          <div class="prompt-grid" aria-label="Suggested prompts">
-            <button class="prompt-card" type="button" data-prompt="Jarvis, give me my morning briefing">
-              <span class="prompt-icon">✦</span><span><strong>Morning briefing</strong><small>Start your day informed</small></span><span class="prompt-arrow">↗</span>
-            </button>
-            <button class="prompt-card" type="button" data-prompt="What is the weather today?">
-              <span class="prompt-icon">◌</span><span><strong>Check the weather</strong><small>Get a local forecast</small></span><span class="prompt-arrow">↗</span>
-            </button>
-            <button class="prompt-card" type="button" data-prompt="What is the current Bitcoin price?">
-              <span class="prompt-icon">◇</span><span><strong>Market snapshot</strong><small>Check Bitcoin today</small></span><span class="prompt-arrow">↗</span>
-            </button>
-            <button class="prompt-card" type="button" data-prompt="Tell me a useful idea for today">
-              <span class="prompt-icon">⌁</span><span><strong>Explore an idea</strong><small>Think something through</small></span><span class="prompt-arrow">↗</span>
-            </button>
-          </div>
-        </div>
-        <div class="chat" id="chat" role="log" aria-label="Chat messages" aria-live="polite" aria-relevant="additions text" tabindex="0"></div>
+        </section>
       </section>
 
-      <footer class="composer-dock">
-        <div class="thinking-status" id="thinking-status" aria-live="polite" hidden>
-          <span class="thinking-orb" aria-hidden="true"><i class="thinking-ring"></i><i class="thinking-core"></i></span>
-          <span id="thinking-label">J.A.R.V.I.S is thinking</span><span class="thinking-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <section id="kalki-share-preview" class="share-preview" hidden aria-label="Shared content preview">
+        <div class="share-preview-head"><strong>SHARED WITH KALKI</strong><button id="share-dismiss" type="button" aria-label="Dismiss shared content">×</button></div>
+        <p id="share-summary" class="share-summary"></p>
+        <div id="share-files" class="share-files"></div>
+        <div class="share-actions" role="group" aria-label="Choose a draft action">
+          <button type="button" data-share-action="Summarize">Summarize</button>
+          <button type="button" data-share-action="Extract">Extract</button>
+          <button type="button" data-share-action="Translate">Translate</button>
+          <button type="button" data-share-action="Draft reply">Draft reply</button>
         </div>
-        <div class="composer-shell">
-          <button class="composer-tool" id="cam-btn" type="button" aria-label="Analyze image" title="Attach an image">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5h3l1.4-2h7.2l1.4 2h3v10H4z"/><circle cx="12" cy="13.5" r="3.2"/></svg>
-          </button>
-          <textarea id="msg" rows="1" placeholder="Message J.A.R.V.I.S..." aria-label="Message J.A.R.V.I.S"></textarea>
-          <input id="img-input" type="file" accept="image/*" hidden>
-          <div class="composer-actions">
-            <button class="composer-tool voice-button" id="mic-btn" type="button" aria-label="Activate voice input" title="Voice input">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"/></svg>
-            </button>
-            <button class="send-button" id="send" type="button" aria-label="Send message" title="Send message">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>
-            </button>
-          </div>
-        </div>
-        <p class="composer-note">ENTER TO SEND <span>·</span> SHIFT + ENTER FOR A NEW LINE <span class="note-separator">·</span> J.A.R.V.I.S can make mistakes</p>
-      </footer>
+        <small>Preview only. Choose an action to prepare a draft; nothing is sent or executed without your approval.</small>
+      </section>
+      <section id="chat" class="chat" aria-live="polite" aria-label="Conversation"></section>
+      <section id="kalki-effects-panel" class="kalki-effects-panel" hidden aria-labelledby="kalki-effects-title">
+        <header class="kalki-effects-panel-head"><div><p class="eyebrow">KALKI · ASSISTANT UI</p><h2 id="kalki-effects-title" tabindex="-1">Visual effects</h2></div><button id="kalki-effects-close" class="kalki-effects-back" type="button">← Back to chat</button></header>
+        <p id="kalki-effects-load-error" class="kalki-effects-load-error" role="alert" hidden>The visual effects lab could not be opened. Check your connection, then reopen the panel to try again.</p>
+        <p id="kalki-effects-loading" class="kalki-effects-loading" role="status" aria-live="polite" hidden>Loading visual effects…</p>
+        <iframe id="kalki-effects-frame" class="kalki-effects-frame" title="KALKI visual effects lab" loading="lazy" scrolling="no" src="about:blank" data-src="effects/index.html?v=standalone-3" aria-busy="true"></iframe>
+      </section>
+      <section id="creator-agent-panel" class="creator-agent-panel" hidden aria-labelledby="creator-agent-title">
+        <div class="creator-agent-head"><div><p class="eyebrow">KALKI CREATOR AGENT</p><h2 id="creator-agent-title">Short-video studio</h2><p>Prepare a Telugu/Teluglish creator brief in stages. Nothing is rendered, uploaded, or published here.</p></div><span class="creator-safe-badge">EXPLICIT ONLY</span></div>
+        <div class="creator-stagebar" role="list" aria-label="Creator workflow stages"><span class="is-active" data-creator-stage="brief">1 Brief</span><span data-creator-stage="script">2 Script</span><span data-creator-stage="assets">3 Assets</span><span data-creator-stage="edit">4 Edit plan</span><span data-creator-stage="preview">5 Preview</span><span data-creator-stage="export">6 Export</span></div>
+        <form id="creator-agent-form" class="creator-form">
+          <label>Topic or keyword<input id="creator-topic" required placeholder="e.g. AI tools for Telugu creators"></label>
+          <div class="creator-two-col"><label>Audience / platform<input id="creator-audience" placeholder="Telugu beginners · YouTube Shorts"></label><label>Length<select id="creator-length"><option>30 seconds</option><option>45 seconds</option><option>60 seconds</option></select></label></div>
+          <div class="creator-two-col"><label>Language<select id="creator-language"><option>Telugu</option><option>Teluglish</option><option>English</option></select></label><label>Style<select id="creator-style"><option>Faceless tutorial</option><option>News/explainer</option><option>Storytelling</option><option>Hook-first short</option></select></label></div>
+          <label>Context pack / notes<textarea id="creator-context" rows="2" placeholder="Reuse approved context packs, brand notes, or a source link (optional)"></textarea></label>
+          <button class="creator-primary" type="submit">Prepare creator brief →</button>
+        </form>
+        <section id="creator-output" class="creator-output" hidden aria-live="polite"><div class="creator-output-head"><strong id="creator-output-title">Creator plan</strong><span id="creator-output-state">BRIEF READY</span></div><div id="creator-cards" class="creator-cards"></div><div class="creator-preview"><div><strong>Workflow preview</strong><p id="creator-workflow"></p></div><div class="creator-boundary">No video rendering worker or provider is configured. Asset search terms are planning-only; use original, licensed, or permissioned footage/music.</div></div><div class="creator-approval"><label><input id="creator-approval" type="checkbox"> I explicitly approve exporting this planning package (no upload or publish).</label><button id="creator-export" type="button" disabled>Download plan placeholder</button><button id="creator-reset" type="button" class="creator-secondary">Start over</button></div></section>
+      </section>
+      <section id="social-agent-panel" class="social-agent-panel" hidden aria-labelledby="social-agent-title">
+        <header class="social-head"><div><p class="eyebrow">KALKI · AGENTS</p><h2 id="social-agent-title">Social Automation Agent</h2><p>Build and test Instagram automation rules privately. This workspace stores drafts and simulation records in this browser only.</p></div><span id="social-agent-connection-state" class="social-pending">INSTAGRAM · PENDING</span></header>
+        <p class="social-boundary"><strong>Safe preview mode:</strong> no Meta OAuth is configured, and this agent has no Instagram API, webhook, or send capability. “Start” enables only the local simulator. Every DM remains a draft; confirming approval records consent locally and <strong>never sends or publishes</strong>.</p>
+        <div id="social-agent-metrics" class="social-metrics" aria-label="Local preview metrics"></div>
+        <section class="social-card" aria-labelledby="social-rule-builder-title"><h3 id="social-rule-builder-title">1 · Automation builder</h3><p>Build the two-step flow: a comment gets one private CTA asking the person to follow and DM the agreed keyword; only that inbound DM can unlock the profile check. Rules are saved paused. A non-empty username allowlist and explicit approval are always required.</p>
+          <form id="social-agent-form"><div class="social-form-grid">
+            <label>Rule name<input name="name" required maxlength="60" placeholder="e.g. Product info comment reply"></label>
+            <label>Trigger<select name="trigger"><option value="comment">Post comment → one private reply CTA</option><option value="keyword">Incoming DM keyword → follow check</option><option value="story">Story reply DM → follow check</option></select></label>
+            <label>Condition<select name="condition"><option value="keyword">Keyword match</option><option value="any">Any text (still allowlist-gated)</option></select></label>
+            <label>Keyword matching<select name="matchMode"><option value="contains">Contains phrase</option><option value="word">Whole word</option></select></label>
+            <label class="social-full">Condition keywords<input name="keywords" placeholder="price, guide, details (comma separated)"></label>
+            <label class="social-full">Comment private-reply CTA / non-follower reminder<textarea name="reply" required maxlength="1000" placeholder="Thanks! Follow @growthos_telugu, then DM {keyword} to get the resource."></textarea></label>
+            <label>Agreed DM keyword<input name="dmKeyword" required maxlength="40" value="GUIDE" placeholder="GUIDE"></label><label>Resource URL (PDF / link)<input name="resourceUrl" type="url" required placeholder="https://..." autocomplete="off"></label><label class="social-full">WhatsApp community invite URL (optional)<input name="inviteUrl" type="url" placeholder="https://chat.whatsapp.com/..." autocomplete="off"></label>
+            <label class="social-full">Allowlist · Instagram usernames<input name="allowlist" required placeholder="creator_one, customer.two (comma, space or line separated)"></label>
+          </div><label class="social-check"><input type="checkbox" checked disabled> Require explicit approval for every external action (locked on; external sending is not implemented)</label><button class="social-primary" type="submit">Save local rule · paused</button></form>
+        </section>
+        <section class="social-card" aria-labelledby="social-rule-list-title"><h3 id="social-rule-list-title">2 · Rules and controls</h3><p>Status: <strong id="social-agent-running">PAUSED / STOPPED</strong>. Enable individual rules for local simulations, then start or pause the simulator. This does not activate Instagram triggers.</p><div class="social-row"><button id="social-agent-toggle" class="social-primary" type="button">Start simulator</button><button id="social-agent-stop" class="social-danger" type="button">Stop all</button></div><div id="social-agent-rules" class="social-rule-list"></div></section>
+        <section class="social-card" aria-labelledby="social-sim-title"><h3 id="social-sim-title">3 · Simulate an incoming event</h3><p>Comment samples can only produce the single private CTA; comment events alone cannot authorize profile lookup. For an incoming DM/story reply, choose the simulated follow result. A link preview requires a confirmed follower result; non-followers get a follow reminder and must DM the agreed keyword again. This local simulation does not call Meta.</p><form id="social-simulate-form"><div class="social-form-grid"><label>Sample trigger<select name="trigger"><option value="comment">Post comment</option><option value="keyword">Incoming DM / agreed keyword</option><option value="story">Story reply DM</option></select></label><label>Profile check result (only after inbound DM)<select name="profileStatus"><option value="unknown">Unknown (block resource preview)</option><option value="follower">Follows @growthos_telugu</option><option value="notFollower">Does not follow</option></select></label><label>Sample username<input name="username" required maxlength="30" placeholder="allowlisted_username"></label><label class="social-full">Sample comment / DM / story reply<textarea name="eventText" required maxlength="1000" placeholder="Type sample event content, e.g. send me the guide"></textarea></label></div><div class="social-row"><button class="social-primary" type="submit">Generate local preview</button></div></form><p id="social-agent-status" class="social-status" role="status" aria-live="polite"></p></section>
+        <section id="social-agent-pending" class="social-preview" hidden aria-labelledby="social-preview-title"><h3 id="social-preview-title">Preview only</h3><p id="social-preview-detail"></p><p id="social-preview-action"></p><p class="social-boundary">Approval below acknowledges the displayed draft only. The Instagram send action is intentionally unavailable; no request will be made.</p><label class="social-check"><input id="social-preview-check" type="checkbox"> I reviewed this exact preview and explicitly approve recording my approval locally (not sending).</label><button id="social-preview-confirm" type="button" class="social-primary" disabled>Confirm local approval · no send</button></section>
+        <section class="social-audit" aria-labelledby="social-audit-title"><div class="social-row"><h3 id="social-audit-title">Local audit log</h3><button id="social-agent-clear-audit" type="button" class="social-secondary">Clear local log</button></div><p>Browser-local record of rule changes, blocked samples, previews and approvals. No live Instagram metrics are available.</p><div id="social-agent-audit" class="social-audit-list" aria-live="polite"></div></section>
+        <p class="social-boundary"><strong>Follow-check boundary:</strong> Meta user-profile consent is granted only after an inbound message or an icebreaker/persistent-menu interaction; a post comment alone is insufficient. A verified follower preview uses the `is_user_follow_business` profile field only after that consent. Meta allows a response for 24 hours after an inbound message; no timer/recheck is implemented here. If they follow later, ask them to DM the agreed keyword again so the app can check within a fresh messaging window. A comment private reply is a one-time CTA (within the platform comment-reply window); never send a second private reply for the same event. Real connection still requires Meta app/account setup, server-only App ID/secret, exact OAuth redirect URI, HTTPS webhook, current messaging/comment permissions and app review/advanced access. Secrets never belong in this page or repository.</p>
+      </section>
     </main>
 
-    <div class="settings-scrim" id="settings-scrim" hidden></div>
-    <aside class="settings-panel" id="settings-panel" aria-labelledby="settings-title" aria-modal="true" role="dialog" hidden>
-      <div class="settings-header"><div><p class="eyebrow">PREFERENCES</p><h2 id="settings-title">Settings</h2></div><button class="icon-button" id="settings-close" type="button" aria-label="Close settings">×</button></div>
-      <div class="settings-group"><label for="theme-select">Appearance</label><p>Set the tone of your workspace.</p><select id="theme-select"><option value="dark">Midnight · dark</option><option value="light">Silver · light</option></select></div>
-      <div class="settings-group"><strong>Conversation history</strong><p>Your conversations are saved in this browser profile.</p></div>
-      <div class="settings-bottom"><button class="danger-button" id="clear-memory-setting" type="button">Clear current conversation</button><p>J.A.R.V.I.S · Personal AI</p></div>
-    </aside>
+    <div class="composer-wrap">
+      <div class="composer" role="group" aria-label="Message composer">
+        <button id="attach-btn" class="composer-icon" type="button" aria-label="Attach a file" aria-expanded="false">＋</button>
+        <input id="img-input" type="file" accept="image/*,.pdf,.txt,.doc,.docx" hidden>
+        <input id="msg" type="text" placeholder="Talk or message KALKI..." autocomplete="off" enterkeyhint="send">
+        <button id="mic-btn" class="composer-icon voice-conversation-toggle" type="button" aria-label="Start voice conversation" title="Start voice conversation" aria-pressed="false">🎙</button>
+        <button id="send" class="send-button" type="button" aria-label="Send message">↑</button>
+      <div id="attachment-menu" class="attachment-menu" hidden role="menu"><button id="cam-btn" type="button" role="menuitem">📷 Take or choose an image</button><button id="file-btn" type="button" role="menuitem">📎 Choose a file</button></div>
+      </div>
+      <p class="safe-note"><span>✦</span> KALKI only takes action when you explicitly ask.</p>
+      <p id="voice-mode-status" class="voice-mode-status" role="status" aria-live="polite">Tap 🎙 to start a voice conversation. Tap again to stop.</p>
+    </div>
   </div>
 
-  <script src="script.js?v=gemini38-wake-loop-20261007-r5"></script>
-</body>
-</html>
+  <aside class="side-sheet" aria-label="Navigation">
+    <button class="sheet-close" type="button" aria-label="Close menu">×</button>
+    <p class="eyebrow">KALKI</p><h2>Assistant</h2>
+    <button class="sheet-link" type="button">＋ New conversation</button>
+    <a class="sheet-link" href="connectors.html">◇ Connectors</a>
+    <a class="sheet-link" href="../" target="_blank" rel="noopener noreferrer" aria-label="Open the KALKI product website in a new tab">ⓘ KALKI product site ↗</a>
+    <a class="sheet-link" href="#kalki-effects-panel" id="kalki-effects-link">✧ KALKI Visual Effects</a>
+    <a class="sheet-link" href="#creator-agent-panel" id="creator-agent-link">✦ Creator Agent</a><a class="sheet-link" href="#social-agent-panel" id="social-agent-link">◎ Social Automation Agent</a><a class="sheet-link" href="#everyday-tools" id="tools-menu-link">⌁ Tools</a><button id="settings-toggle" class="sheet-link" type="button" aria-expanded="false">⚙ Settings</button>
+    <section id="voice-settings" class="voice-settings" hidden aria-label="Settings">
+      <section class="voice-output-settings" aria-labelledby="tts-settings-title">
+        <div class="voice-setting-heading"><strong id="tts-settings-title">Voice conversation</strong><small>Choose a consistent voice and how KALKI listens.</small></div>
+        <label class="api-key-label" for="tts-voice-select">KALKI speaking voice</la
