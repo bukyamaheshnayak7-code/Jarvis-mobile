@@ -18,18 +18,3 @@ function add(text,who){
  chat.appendChild(d);
  chat.scrollTop=chat.scrollHeight;
 }
-NEXT STEPS & COMMUNITY
- Episode 4: THE VOICE PROTOCOL
-మన JARVIS కి Body వచిర్చింది. Next Episode ‌లో దానికి Voice ఇసాస్తా ం!
-మీరు మా‌టాక్లి డితే... అది వింటుంది. Reply ఇసుస్తా ంది.
- GrowthOS Telugu Community
-Source Code Files
-Future Episode Updates
-Doubt Clearing Sessions
-Exclusive Content
-Join WhatsApp Community:
-https://chat.whatsapp.com/HbXdh6uC05oEzTrztY2H47 
-• 
-• 
-• 
-•
